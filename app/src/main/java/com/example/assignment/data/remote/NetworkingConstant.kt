@@ -1,0 +1,57 @@
+/*
+ * Created by Dheeraj on 23/09/21, 3:52 PM
+ * Copyright (c) 2021 . All rights reserved.
+ * Last modified 23/09/21, 12:38 PM
+ */
+
+package com.example.assignment.data.remote
+
+object NetworkingConstant {
+    const val GENDER = "gender"
+    const val NAME = "personName"
+    const val NAME_TITTLE = "title"
+    const val FIRST_NAME = "first"
+    const val LAST_NAME = "last"
+    const val LOCATION = "location"
+    const val STREET = "street"
+    const val STREET_NUMBER = "number"
+    const val STREET_NAME = "name"
+    const val CITY = "city"
+    const val STATE = "state"
+    const val COUNTRY = "country"
+    const val POST_CODE = "postcode"
+    const val COORDINATES = "coordinates"
+    const val LATITUDE = "latitude"
+    const val LONGITUDE = "longitude"
+    const val TIME_ZONE = "timezone"
+    const val OFF_SET = "offset"
+    const val DESCRIPTION = "description"
+    const val EMAIL = "email"
+    const val LOGIN = "login"
+    const val UUID = "uuid"
+    const val USER_NAME = "username"
+    const val PASSWORD = "password"
+    const val SALT = "salt"
+    const val MD5 = "md5"
+    const val SHA1 = "sha1"
+    const val SHA1256 = "sha256"
+    const val DOB = "dob"
+    const val DOB_DATE = "date"
+    const val AGE = "age"
+    const val PHONE = "phone"
+    const val MOBILE = "cell"
+    const val USER_ID = "userIdDetails"
+    const val CONTACT_NAME = "name"
+    const val USER_REGISTERED = "userRegisteredDetails"
+    const val CONTACT_VALUE = "value"
+    const val USER_PICTURE = "userPicture"
+    const val USER_PICTURE_LARGE = "large"
+    const val USER_PICTURE_MEDIUM = "medium"
+    const val USER_PICTURE_THUMBNAIL = "thumbnail"
+    const val NAT = "nat"
+    const val INFO = "info"
+    const val SEED = "seed"
+    const val RESULTS = "results"
+    const val RESULT_PAGE_NO = "page"
+    const val VERSION = "version"
+}

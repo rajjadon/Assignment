@@ -1,5 +1,7 @@
 package com.example.assignment.common.appCommonMessage
 
-interface SnackBarMessageRules {
+import com.example.assignment.common.MarkerInterface
+
+interface SnackBarMessageRules : MarkerInterface {
     fun showInfoIconMessage(message: String)
 }
