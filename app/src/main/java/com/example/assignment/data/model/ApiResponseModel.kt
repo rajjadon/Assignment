@@ -48,8 +48,10 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Person(
-    @Json(name = GENDER) var gender: String = "",
-
+    @Json(name = GENDER)
+    var gender: String = "",
+    var requestTittle: String = "",
+    var colorId: Int = 0,
     @Json(name = MOBILE)
     var mobile: String = "",
     @Json(name = DOB)
