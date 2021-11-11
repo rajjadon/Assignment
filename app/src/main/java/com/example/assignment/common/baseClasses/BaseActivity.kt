@@ -5,17 +5,25 @@ import android.os.Bundle
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.assignment.common.Utills.IsLoadingEvent
+import com.example.assignment.data.remote.apiCallAndReciver.ApiCallsImplementer
+import com.example.assignment.ui.MatchFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 abstract class BaseActivity : AppCompatActivity() {
 
+    val matchFragmentViewModelEvent: MatchFragmentViewModel by viewModels()
+
+    @Inject
+    lateinit var apiCallsImplementer: ApiCallsImplementer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +31,15 @@ abstract class BaseActivity : AppCompatActivity() {
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this)
         }
+
+        setApiObserver()
+    }
+
+    private fun setApiObserver() {
+        matchFragmentViewModelEvent.getPersonList.observe(this, { event ->
+
+            event.getContentIfNotHandled()?.let(apiCallsImplementer::personListResponse)
+        })
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {

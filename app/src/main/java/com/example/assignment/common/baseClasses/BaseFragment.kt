@@ -10,12 +10,16 @@ import android.view.animation.TranslateAnimation
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.assignment.R
 import com.example.assignment.common.Utills.setDrawableIconOnLeft
 import com.example.assignment.common.appCommonMessage.SnackBarMessageRules
+import com.example.assignment.data.remote.apiCallAndReciver.ApiCallsImplementer
 import com.example.assignment.databinding.CustomSnackbarLayoutBinding
+import com.example.assignment.ui.MatchFragmentViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.Snackbar.SnackbarLayout
+import javax.inject.Inject
 
 abstract class BaseFragment<T : ViewDataBinding> : Fragment(), SnackBarMessageRules {
 
@@ -25,6 +29,15 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment(), SnackBarMessageRu
     private lateinit var snackBar: Snackbar
     private lateinit var layout: SnackbarLayout
     private lateinit var customSnackBarLayoutBinding: CustomSnackbarLayoutBinding
+
+    //view model block
+
+    val matchFragmentViewModelEvent: MatchFragmentViewModel by viewModels({ activity as BaseActivity })
+
+    ////////
+
+    @Inject
+    lateinit var apiCallsImplementer: ApiCallsImplementer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
