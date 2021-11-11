@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Assignment</string>
     <string name="ok">OK</string>
+    <string name="no_data">No Data!</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
 </resources>

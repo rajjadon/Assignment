@@ -1,7 +1,7 @@
 package com.example.assignment.common.baseClasses
 
 import android.os.Bundle
-import com.example.assignment.common.Utills.IsLoadingEvent
+import com.example.assignment.common.utills.IsLoadingEvent
 import com.example.assignment.databinding.ActivityMainBinding
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode

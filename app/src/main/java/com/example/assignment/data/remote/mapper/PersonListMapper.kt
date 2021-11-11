@@ -2,7 +2,7 @@ package com.example.assignment.data.remote.mapper
 
 import com.example.assignment.common.AppConstant.APP_DATE_FORMAT
 import com.example.assignment.common.AppConstant.APP_SERVER_DATE_FORMAT
-import com.example.assignment.common.Utills.getAppDateFromServerDate
+import com.example.assignment.common.utills.getAppDateFromServerDate
 import com.example.assignment.data.model.BaseResponse
 import com.example.assignment.data.model.Person
 import com.example.assignment.data.remote.apiHelper.EntityMapper
@@ -24,14 +24,26 @@ class PersonListMapper @Inject constructor(
             data = entity.map { person ->
 
                 person.apply {
-
                     birthdayInfo.dobDate = getAppDateFromServerDate(
                         birthdayInfo.dobDate,
                         appDateFormat,
                         serverDateFormat
                     )
-                }
 
+                    personName.apply {
+                        personName.nameTitle = "$nameTitle $firstName $lastName"
+                    }
+
+                    person.personLocation.apply {
+                        city = "$city $state $country"
+                    }
+
+                    userRegisteredDetails.registrationDate = getAppDateFromServerDate(
+                        userRegisteredDetails.registrationDate,
+                        appDateFormat,
+                        serverDateFormat
+                    )
+                }
                 person
             }
         )

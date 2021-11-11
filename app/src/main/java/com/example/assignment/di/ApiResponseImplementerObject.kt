@@ -1,6 +1,6 @@
 package com.example.assignment.di
 
-import com.example.assignment.common.Utills.IsLoadingEvent
+import com.example.assignment.common.utills.IsLoadingEvent
 import com.example.assignment.data.remote.apiCallAndReciver.ApiCallsImplementer
 import dagger.Module
 import dagger.Provides

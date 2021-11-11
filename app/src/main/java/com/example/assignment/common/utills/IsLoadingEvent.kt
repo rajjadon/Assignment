@@ -4,7 +4,7 @@
  * Last modified 16/08/21, 11:08 AM
  */
 
-package com.example.assignment.common.Utills
+package com.example.assignment.common.utills
 
 class IsLoadingEvent {
 

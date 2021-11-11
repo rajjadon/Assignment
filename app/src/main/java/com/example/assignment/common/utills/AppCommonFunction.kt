@@ -1,4 +1,4 @@
-package com.example.assignment.common.Utills
+package com.example.assignment.common.utills
 
 import android.widget.ImageView
 import android.widget.TextView

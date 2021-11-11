@@ -12,8 +12,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.assignment.R
-import com.example.assignment.common.Utills.setDrawableIconOnLeft
 import com.example.assignment.common.appCommonMessage.SnackBarMessageRules
+import com.example.assignment.common.utills.setDrawableIconOnLeft
 import com.example.assignment.data.remote.apiCallAndReciver.ApiCallsImplementer
 import com.example.assignment.databinding.CustomSnackbarLayoutBinding
 import com.example.assignment.ui.MatchFragmentViewModel

@@ -1,6 +1,6 @@
 package com.example.assignment.data.remote.apiCallAndReciver
 
-import com.example.assignment.common.Utills.IsLoadingEvent
+import com.example.assignment.common.utills.IsLoadingEvent
 import com.example.assignment.data.model.BaseResponse
 import com.example.assignment.data.model.DataState
 import com.example.assignment.data.model.Person

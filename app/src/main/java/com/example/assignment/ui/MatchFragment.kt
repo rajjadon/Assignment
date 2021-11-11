@@ -7,17 +7,21 @@ import com.example.assignment.data.model.DataState
 import com.example.assignment.data.model.Person
 import com.example.assignment.data.remote.apiCallAndReciver.PersonListReceiver
 import com.example.assignment.databinding.FragmentMatchBinding
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver {
+class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, MatchOperation {
+
+    private lateinit var matchOperation: MatchOperation
+    private lateinit var personListAdapter: PersonListAdapter
 
     override fun getFragmentLayout() = R.layout.fragment_match
 
     override fun implementApiCallsDataReceiver() {
         apiCallsImplementer.personListReceiver = this
+        matchOperation = this
+        personListAdapter = PersonListAdapter(matchOperation)
     }
 
     override fun setUpBindingVariables() {
@@ -40,7 +44,21 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver {
             is DataState.Loading -> {
                 Timber.e(dataState.toString())
             }
-            is DataState.Success -> Timber.e(Gson().toJson(dataState.baseResponseData))
+            is DataState.Success -> {
+
+                dataState.baseResponseData.data?.let {
+                    personListAdapter.addItems(it)
+                    binding.adapter = personListAdapter
+                } ?: run { showInfoIconMessage(getString(R.string.no_data)) }
+            }
         }
+    }
+
+    override fun acceptRequest(person: Person) {
+        TODO("Not yet implemented")
+    }
+
+    override fun declineRequest(person: Person) {
+        TODO("Not yet implemented")
     }
 }

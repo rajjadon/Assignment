@@ -4,7 +4,7 @@
  * Last modified 11/08/21, 11:11 AM
  */
 
-package com.example.assignment.common.Utills
+package com.example.assignment.common.utills
 
 import android.os.Parcelable
 import kotlinx.parcelize.IgnoredOnParcel
