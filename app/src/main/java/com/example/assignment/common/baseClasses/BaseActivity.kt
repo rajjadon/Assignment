@@ -7,13 +7,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.assignment.common.Utills.IsLoadingEvent
 import com.example.assignment.data.remote.apiCallAndReciver.ApiCallsImplementer
 import com.example.assignment.ui.MatchFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -62,9 +59,6 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         return super.dispatchTouchEvent(ev)
     }
-
-    @Subscribe(sticky = true, threadMode = ThreadMode.BACKGROUND)
-    abstract fun onEvent(isLoading: IsLoadingEvent)
 
     private fun hideKeyboard(activity: Activity?) {
         if (activity != null && activity.window != null) {

@@ -7,7 +7,11 @@ import com.example.assignment.data.model.DataState
 import com.example.assignment.data.model.Person
 import com.example.assignment.data.remote.apiCallAndReciver.PersonListReceiver
 import com.example.assignment.databinding.FragmentMatchBinding
+import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
+@AndroidEntryPoint
 class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver {
 
     override fun getFragmentLayout() = R.layout.fragment_match
@@ -17,14 +21,26 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver {
     }
 
     override fun setUpBindingVariables() {
-        TODO("Not yet implemented")
+        apiCallsImplementer.callGetPersonList(matchFragmentViewModelEvent)
     }
 
     override fun setClickListener() {
-        TODO("Not yet implemented")
+        // Not yet implemented"
     }
 
     override fun onPersonListReceiver(dataState: DataState<BaseResponse<List<Person>>>) {
-        TODO("Not yet implemented")
+
+        when (dataState) {
+            is DataState.NetworkError -> {
+                showInfoIconMessage(dataState.errorMessage)
+            }
+            is DataState.GenericError -> {
+                dataState.errorMessage?.let { showInfoIconMessage(it) }
+            }
+            is DataState.Loading -> {
+                Timber.e(dataState.toString())
+            }
+            is DataState.Success -> Timber.e(Gson().toJson(dataState.baseResponseData))
+        }
     }
 }
