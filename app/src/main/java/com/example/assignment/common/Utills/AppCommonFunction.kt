@@ -9,6 +9,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.assignment.R
+import timber.log.Timber
+import java.text.SimpleDateFormat
+import java.util.*
 
 @BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, imageUrl: String?) {
@@ -37,3 +40,19 @@ fun getCircleCropRequestOption(): RequestOptions {
         .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
         .priority(Priority.HIGH)
 }
+
+fun getAppDateFromServerDate(
+    date: String,
+    appCalendarDateFormat: SimpleDateFormat,
+    appServerDateFormat: SimpleDateFormat
+): String =
+    run {
+        val calendar = Calendar.getInstance()
+
+        try {
+            appServerDateFormat.parse(date)?.let { calendar.time = it }
+        } catch (e: Exception) {
+            Timber.e(e)
+        }
+        appCalendarDateFormat.format(calendar.timeInMillis)
+    }
