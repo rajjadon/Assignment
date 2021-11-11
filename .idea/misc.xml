@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Android Project/My Projects/Assignment/app/src/main/res/drawable-v24/ic_camera_ellipse_bg.xml" value="0.1" />
+        <entry key="..\:/Android/Android Project/My Projects/Assignment/app/src/main/res/drawable-v24/ic_info.xml" value="0.1" />
         <entry key="..\:/Android/Android Project/My Projects/Assignment/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Android/Android Project/My Projects/Assignment/app/src/main/res/layout/custom_snackbar_layout.xml" value="0.1" />
       </map>
     </option>
   </component>
