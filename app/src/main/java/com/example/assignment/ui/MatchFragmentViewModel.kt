@@ -8,6 +8,7 @@ import com.example.assignment.common.utills.Event
 import com.example.assignment.data.model.BaseResponse
 import com.example.assignment.data.model.DataState
 import com.example.assignment.data.model.Person
+import com.example.assignment.data.model.ResultParams
 import com.example.assignment.data.remote.MatchFragmentRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -32,12 +33,13 @@ class MatchFragmentViewModel @Inject constructor
         viewModelScope.launch {
 
             when (matchFragmentViewModelEvent) {
-                MatchFragmentViewModelEvent.GetPersonDetails -> {
+                is MatchFragmentViewModelEvent.GetPersonDetails -> {
 
-                    matchFragmentRepo.getPersonList().onEach { dataState ->
+                    matchFragmentRepo.getPersonList(matchFragmentViewModelEvent.resultParams)
+                        .onEach { dataState ->
 
-                        _getPersonList.value = Event(dataState)
-                    }.launchIn(viewModelScope)
+                            _getPersonList.value = Event(dataState)
+                        }.launchIn(viewModelScope)
                 }
             }
         }
@@ -45,6 +47,6 @@ class MatchFragmentViewModel @Inject constructor
 
     sealed class MatchFragmentViewModelEvent {
 
-        object GetPersonDetails : MatchFragmentViewModelEvent()
+        class GetPersonDetails(val resultParams: ResultParams) : MatchFragmentViewModelEvent()
     }
 }

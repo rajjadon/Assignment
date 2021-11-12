@@ -2,6 +2,7 @@ package com.example.assignment.di
 
 import com.example.assignment.common.AppConstant.APP_DATE_FORMAT
 import com.example.assignment.common.AppConstant.APP_SERVER_DATE_FORMAT
+import com.example.assignment.data.model.ResultParams
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,4 +31,8 @@ object CommonObjectProvider {
         SimpleDateFormat(APP_SERVER_DATE_FORMAT, Locale.getDefault()).apply {
             timeZone = TimeZone.getDefault()
         }
+
+    @Singleton
+    @Provides
+    fun provideApiRequestParamObject() = ResultParams()
 }

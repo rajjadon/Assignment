@@ -1,6 +1,7 @@
 package com.example.assignment.data.remote
 
 import com.example.assignment.data.model.DataState
+import com.example.assignment.data.model.ResultParams
 import com.example.assignment.data.remote.apiHelper.SafeApiRequest
 import com.example.assignment.data.remote.mapper.PersonListMapper
 import kotlinx.coroutines.flow.flow
@@ -12,9 +13,15 @@ class MatchFragmentRepo @Inject constructor(
     private val personListMapper: PersonListMapper
 ) {
 
-    suspend fun getPersonList() = flow {
+    suspend fun getPersonList(resultParams: ResultParams) = flow {
 
         emit(DataState.Loading)
-        emit(safeApiRequest.apiRequest { personListMapper.mapFromEntity(apiService.getPersonList()) })
+        emit(safeApiRequest.apiRequest {
+            personListMapper.mapFromEntity(
+                apiService.getPersonList(
+                    resultParams.resultKeyword
+                )
+            )
+        })
     }
 }

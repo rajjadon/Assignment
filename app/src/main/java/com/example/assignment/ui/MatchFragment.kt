@@ -1,5 +1,8 @@
 package com.example.assignment.ui
 
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.assignment.R
 import com.example.assignment.common.baseClasses.BaseFragment
 import com.example.assignment.data.model.BaseResponse
@@ -15,6 +18,7 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
 
     private lateinit var matchOperation: MatchOperation
     private lateinit var personListAdapter: PersonListAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun getFragmentLayout() = R.layout.fragment_match
 
@@ -25,11 +29,37 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
     }
 
     override fun setUpBindingVariables() {
-        apiCallsImplementer.callGetPersonList(matchFragmentViewModelEvent)
+        apiCallsImplementer.callGetPersonList(matchFragmentViewModelEvent, resultParams)
     }
 
     override fun setClickListener() {
-        // Not yet implemented"
+        linearLayoutManager = LinearLayoutManager(requireContext())
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+        binding.rvMatch.layoutManager = linearLayoutManager
+        binding.rvMatch.addOnScrollListener(addPagination())
+    }
+
+    private fun addPagination() = object : RecyclerView.OnScrollListener() {
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            if (dy > 0) { //check for scroll down
+
+                lifecycleScope.launchWhenResumed {
+
+                    binding.rvMatch.layoutManager?.let {
+
+                        val visibleItemCount = linearLayoutManager.childCount
+                        val totalItemCount = linearLayoutManager.itemCount
+                        val pastVisibleItems = linearLayoutManager.findFirstVisibleItemPosition()
+
+                        if (visibleItemCount + pastVisibleItems >= totalItemCount)
+
+                            apiCallsImplementer.callGetPersonList(
+                                matchFragmentViewModelEvent,
+                                resultParams.apply { resultKeyword += 10 })
+                    }
+                }
+            }
+        }
     }
 
     override fun onPersonListReceiver(dataState: DataState<BaseResponse<List<Person>>>) {
@@ -52,6 +82,11 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
                 } ?: run { showInfoIconMessage(getString(R.string.no_data)) }
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        resultParams.onDataClear()
     }
 
     override fun acceptRequest(person: Person) {
