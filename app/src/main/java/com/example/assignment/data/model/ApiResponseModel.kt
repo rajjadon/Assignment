@@ -67,9 +67,9 @@ data class Person(
     @Json(name = NAME)
     var personName: PersonName,
     @Json(name = NAT)
-    var nat: String,
+    var nat: String = "",
     @Json(name = PHONE)
-    var phone: String,
+    var phone: String = "",
     @Json(name = USER_PICTURE)
     var userPicture: UserPicture,
     @Json(name = USER_REGISTERED)
@@ -78,29 +78,29 @@ data class Person(
 
 data class BirthdayInfo(
     @Json(name = AGE)
-    var age: Int,
+    var age: Int = 0,
     @Json(name = DOB_DATE)
-    var dobDate: String
+    var dobDate: String = ""
 )
 
 data class UserIdDetails(
     @Json(name = CONTACT_NAME)
-    var name: String,
+    var name: String = "",
     @Json(name = CONTACT_VALUE)
-    var value: String
+    var value: String? = ""
 )
 
 data class PersonLocation(
     @Json(name = CITY)
-    var city: String,
+    var city: String = "",
     @Json(name = COORDINATES)
     var coordinates: Coordinates,
     @Json(name = COUNTRY)
-    var country: String,
+    var country: String = "",
     @Json(name = POST_CODE)
-    var postcode: Int,
+    var postcode: String = "",
     @Json(name = STATE)
-    var state: String,
+    var state: String = "",
     @Json(name = STREET)
     var street: Street,
     @Json(name = TIME_ZONE)
@@ -109,63 +109,63 @@ data class PersonLocation(
 
 data class Login(
     @Json(name = MD5)
-    var md5: String,
+    var md5: String = "",
     @Json(name = PASSWORD)
-    var password: String,
+    var password: String = "",
     @Json(name = SALT)
-    var salt: String,
+    var salt: String = "",
     @Json(name = SHA1)
-    var sha1: String,
+    var sha1: String = "",
     @Json(name = SHA1256)
-    var sha256: String,
+    var sha256: String = "",
     @Json(name = USER_NAME)
-    var username: String,
+    var username: String = "",
     @Json(name = UUID)
-    var uuid: String
+    var uuid: String = ""
 )
 
 data class PersonName(
     @Json(name = FIRST_NAME)
-    var firstName: String,
+    var firstName: String = "",
     @Json(name = LAST_NAME)
-    var lastName: String,
+    var lastName: String = "",
     @Json(name = NAME_TITTLE)
-    var nameTitle: String
+    var nameTitle: String = ""
 )
 
 data class UserPicture(
     @Json(name = USER_PICTURE_LARGE)
-    var large: String,
+    var large: String = "",
     @Json(name = USER_PICTURE_MEDIUM)
-    var medium: String,
+    var medium: String = "",
     @Json(name = USER_PICTURE_THUMBNAIL)
-    var thumbnail: String
+    var thumbnail: String = ""
 )
 
 data class UserRegisteredDetails(
     @Json(name = AGE)
-    var registrationAge: Int,
+    var registrationAge: Int = 0,
     @Json(name = DOB_DATE)
-    var registrationDate: String
+    var registrationDate: String = ""
 )
 
 data class Coordinates(
     @Json(name = LATITUDE)
-    var latitude: String,
+    var latitude: String = "",
     @Json(name = LONGITUDE)
-    var longitude: String
+    var longitude: String = ""
 )
 
 data class Street(
     @Json(name = STREET_NAME)
-    var name: String,
+    var name: String = "",
     @Json(name = STREET_NUMBER)
-    var number: Int
+    var number: Int = 0
 )
 
 data class Timezone(
     @Json(name = DESCRIPTION)
-    var description: String,
+    var description: String = "",
     @Json(name = OFF_SET)
-    var offset: String
+    var offset: String = ""
 )

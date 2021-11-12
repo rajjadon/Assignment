@@ -1,5 +1,6 @@
 package com.example.assignment.ui
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -89,11 +90,22 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
         resultParams.onDataClear()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun acceptRequest(person: Person) {
-        TODO("Not yet implemented")
+        personListAdapter.items.remove(person)
+        personListAdapter.items.add(person.apply {
+            requestTittle = getString(R.string.accept_text)
+            colorId = R.color.green
+        })
+        personListAdapter.notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun declineRequest(person: Person) {
-        TODO("Not yet implemented")
+        personListAdapter.items.add(person.apply {
+            requestTittle = getString(R.string.decline_text)
+            colorId = R.color.red
+        })
+        personListAdapter.notifyDataSetChanged()
     }
 }

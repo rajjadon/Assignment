@@ -1,12 +1,12 @@
 package com.example.assignment.data.model
 
-import com.example.assignment.BuildConfig
+import com.example.assignment.data.remote.NetworkingConstant.API_RESULT
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class ResultParams(
-    @Json(name = BuildConfig.RESULT)
+    @Json(name = API_RESULT)
     var resultKeyword: Int = 10
 ) {
 

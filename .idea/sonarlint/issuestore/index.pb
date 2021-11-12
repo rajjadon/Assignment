@@ -3,8 +3,6 @@
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 @
 app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-E
-app/gradle.properties,9\4\94e3e10af8bb8062a0d4e9b8f6ce8b7daeeb814f
 o
 ?app/src/main/java/com/example/assignment/common/Utills/Event.kt,3\8\387f110fd759c6652824ea3c3795b135ca596be9
 x
@@ -13,12 +11,8 @@ Happ/src/main/java/com/example/assignment/common/Utills/IsLoadingEvent.kt,b\f\b
 Tapp/src/main/java/com/example/assignment/common/baseClasses/AssignmentApplication.kt,c\5\c5fdf6803afa7e9b0f91d50771c5b4909d734413
 ˆ
 Xapp/src/main/java/com/example/assignment/common/appCommonMessage/SnackBarMessageRules.kt,5\7\57a5c37698a06d2a06cf8f07b86bca5a39c900e7
-z
-Japp/src/main/java/com/example/assignment/data/remote/NetworkingConstant.kt,8\0\80fdd55e8b74725415c5bd61bcf4b2c3e0346a43
 l
 <app/src/main/java/com/example/assignment/di/NetworkModule.kt,2\a\2af51a4cd0785f7cfc5e84448b964be31ac4a8d1
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 t
 Dapp/src/main/java/com/example/assignment/data/model/ErrorResponse.kt,d\7\d7c6a3e486032ade7b16779bac7b3b8351ff86b1
 F
@@ -33,20 +27,10 @@ r
 Bapp/src/main/java/com/example/assignment/common/MarkerInterface.kt,5\c\5c71518016d5fb61522674a3803269654c50a3c7
 p
 @app/src/main/java/com/example/assignment/data/model/DataState.kt,5\a\5abc5ca299936e84699646c8a43f827db7a098ba
-s
-Capp/src/main/java/com/example/assignment/data/model/BaseResponse.kt,6\c\6cba0d6c62ce698a75f5fd22fa5cad069dab6cfe
 †
 Vapp/src/main/java/com/example/assignment/common/baseClasses/BaseRecyclerViewAdapter.kt,c\7\c7c9d49caa8a0b1f7e687dbf3e5b6e3400c97435
-
-]app/src/main/java/com/example/assignment/data/remote/apiCallAndReciver/ApiResponseReceiver.kt,7\6\76564a9f7613e3a5359e30e8fb4331960fb501f4
-{
-Kapp/src/main/java/com/example/assignment/common/baseClasses/BaseActivity.kt,7\b\7b430e53189ec899b40ec447b57a332737b36de6
 ~
 Napp/src/main/java/com/example/assignment/data/remote/apiHelper/EntityMapper.kt,c\4\c41b16e583f1a91e2cff3de860e1f056c377ab57
-n
->app/src/main/java/com/example/assignment/common/AppConstant.kt,3\8\388adc06727b2a9cf87a2f2ea468045a3c2514c7
-o
-?app/src/main/java/com/example/assignment/common/utills/Event.kt,e\8\e8e391e3902160f1a1f5f79833e9ea67cc315daf
 s
 Capp/src/main/java/com/example/assignment/di/IsLoadingEventModule.kt,a\e\ae817e8f7d96209312469f2c9e538d54d07ffb54
 {
@@ -57,5 +41,3 @@ Happ/src/main/java/com/example/assignment/common/utills/IsLoadingEvent.kt,a\4\a
 Kapp/src/main/java/com/example/assignment/common/baseClasses/MainActivity.kt,7\a\7aafac564956deccbef78da5341bfab7335bee45
 m
 =app/src/main/java/com/example/assignment/ui/MatchOperation.kt,1\d\1d3152a5a2bef999afd7cc8103cbe41a173e124a
-{
-Kapp/src/main/java/com/example/assignment/common/utills/AppCommonFunction.kt,d\b\dbd296e007009382dd97ec71ba59f3d467ef8530

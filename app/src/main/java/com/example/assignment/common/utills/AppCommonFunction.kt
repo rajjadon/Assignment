@@ -6,7 +6,6 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.bumptech.glide.request.RequestOptions
 import com.example.assignment.R
 import timber.log.Timber
@@ -15,6 +14,8 @@ import java.util.*
 
 @BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, imageUrl: String?) {
+
+    Timber.e(imageUrl)
     imageUrl?.let {
         Glide.with(imageView)
             .load(it)
@@ -35,7 +36,6 @@ fun showImageInImageView(imageView: ImageView, imageUrl: String) {
 
 fun getCircleCropRequestOption(): RequestOptions {
     return RequestOptions()
-        .transform(CircleCrop())
         .placeholder(R.drawable.ic_camera_ellipse_bg)
         .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
         .priority(Priority.HIGH)

@@ -19,53 +19,55 @@ class PersonListMapper @Inject constructor(
     private val serverDateFormat: SimpleDateFormat,
     @Named(value = APP_DATE_FORMAT)
     private val appDateFormat: SimpleDateFormat
-) : EntityMapper<List<Person>, BaseResponse<List<Person>>> {
-    override suspend fun mapFromEntity(entity: List<Person>): BaseResponse<List<Person>> {
+) : EntityMapper<BaseResponse<List<Person>>, BaseResponse<List<Person>>> {
+    override suspend fun mapFromEntity(entity: BaseResponse<List<Person>>): BaseResponse<List<Person>> {
         return BaseResponse(
 
-            success = true,
-            message = "success",
-            data = entity.map { person ->
+            data = entity.data?.let {
 
-                person.apply {
-                    birthdayInfo.dobDate = getAppDateFromServerDate(
-                        birthdayInfo.dobDate,
-                        appDateFormat,
-                        serverDateFormat
-                    )
+                it.map { person ->
 
-                    personName.apply {
-                        personName.nameTitle = "$nameTitle $firstName $lastName"
+                    person.apply {
+                        birthdayInfo.dobDate = getAppDateFromServerDate(
+                            birthdayInfo.dobDate,
+                            appDateFormat,
+                            serverDateFormat
+                        )
+
+                        personName.apply {
+                            personName.nameTitle = "$nameTitle $firstName $lastName"
+                        }
+
+                        colorId = when {
+                            requestTittle.equals(
+                                context.getString(R.string.accept_text),
+                                true
+                            ) -> context.getColor(R.color.green)
+                            requestTittle.equals(
+                                context.getString(R.string.decline_text),
+                                true
+                            ) -> context.getColor(R.color.red)
+                            else -> context.getColor(R.color.transparent)
+                        }
+
+                        person.personLocation.apply {
+                            city = "$city $state $country"
+                        }
+
+                        userRegisteredDetails.registrationDate = getAppDateFromServerDate(
+                            userRegisteredDetails.registrationDate,
+                            appDateFormat,
+                            serverDateFormat
+                        )
                     }
-
-                    colorId = when {
-                        requestTittle.equals(
-                            context.getString(R.string.accept_text),
-                            true
-                        ) -> context.getColor(R.color.green)
-                        requestTittle.equals(
-                            context.getString(R.string.decline_text),
-                            true
-                        ) -> context.getColor(R.color.red)
-                        else -> context.getColor(R.color.transparent)
-                    }
-
-                    person.personLocation.apply {
-                        city = "$city $state $country"
-                    }
-
-                    userRegisteredDetails.registrationDate = getAppDateFromServerDate(
-                        userRegisteredDetails.registrationDate,
-                        appDateFormat,
-                        serverDateFormat
-                    )
+                    person
                 }
-                person
+
             }
         )
     }
 
-    override suspend fun mapToEntity(domainModel: BaseResponse<List<Person>>): List<Person> {
+    override suspend fun mapToEntity(domainModel: BaseResponse<List<Person>>): BaseResponse<List<Person>> {
         TODO("Not yet implemented")
     }
 }
