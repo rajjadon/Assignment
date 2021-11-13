@@ -3,7 +3,7 @@ package com.example.assignment.data.remote.apiCallAndReciver
 import com.example.assignment.common.utills.IsLoadingEvent
 import com.example.assignment.data.model.BaseResponse
 import com.example.assignment.data.model.DataState
-import com.example.assignment.data.model.Person
+import com.example.assignment.data.model.PersonLocal
 import com.example.assignment.data.model.ResultParams
 import com.example.assignment.ui.MatchFragmentViewModel
 import org.greenrobot.eventbus.EventBus
@@ -24,7 +24,7 @@ class ApiCallsImplementer(private val isLoadingEvent: IsLoadingEvent) : ApiCallA
         )
     }
 
-    override fun personListResponse(person: DataState<BaseResponse<List<Person>>>) {
+    override fun personListResponse(person: DataState<BaseResponse<List<PersonLocal>>>) {
         isLoading(false)
         if (this::personListReceiver.isInitialized)
             personListReceiver.onPersonListReceiver(person)

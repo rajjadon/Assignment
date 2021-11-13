@@ -1,6 +1,7 @@
 package com.example.assignment.data.remote.apiHelper
 
 import com.android.wakeMate.data.remote.NetworkHelper
+import com.example.assignment.data.local.LocalDao
 import com.example.assignment.data.model.DataState
 import com.example.assignment.data.model.ErrorResponse
 import com.squareup.moshi.Moshi
@@ -15,7 +16,8 @@ enum class ErrorCodes(val code: Int) {
 
 open class SafeApiRequest
 @Inject constructor(
-    private val networkHelper: NetworkHelper
+    private val networkHelper: NetworkHelper,
+    private val localDao: LocalDao
 ) {
     suspend fun <T : Any> apiRequest(dataRequest: suspend () -> T): DataState<T> {
         return try {

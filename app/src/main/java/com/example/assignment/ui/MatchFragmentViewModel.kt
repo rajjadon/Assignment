@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.assignment.common.utills.Event
 import com.example.assignment.data.model.BaseResponse
 import com.example.assignment.data.model.DataState
-import com.example.assignment.data.model.Person
+import com.example.assignment.data.model.PersonLocal
 import com.example.assignment.data.model.ResultParams
 import com.example.assignment.data.remote.MatchFragmentRepo
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,10 +23,10 @@ class MatchFragmentViewModel @Inject constructor
 ) : ViewModel() {
 
 
-    val getPersonList: LiveData<Event<DataState<BaseResponse<List<Person>>>>>
+    val getPersonList: LiveData<Event<DataState<BaseResponse<List<PersonLocal>>>>>
         get() = _getPersonList
 
-    private val _getPersonList: MutableLiveData<Event<DataState<BaseResponse<List<Person>>>>> =
+    private val _getPersonList: MutableLiveData<Event<DataState<BaseResponse<List<PersonLocal>>>>> =
         MutableLiveData()
 
     fun setStateEvent(matchFragmentViewModelEvent: MatchFragmentViewModelEvent) {

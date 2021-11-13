@@ -8,7 +8,7 @@ import com.example.assignment.R
 import com.example.assignment.common.baseClasses.BaseFragment
 import com.example.assignment.data.model.BaseResponse
 import com.example.assignment.data.model.DataState
-import com.example.assignment.data.model.Person
+import com.example.assignment.data.model.PersonLocal
 import com.example.assignment.data.remote.apiCallAndReciver.PersonListReceiver
 import com.example.assignment.databinding.FragmentMatchBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -63,7 +63,7 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
         }
     }
 
-    override fun onPersonListReceiver(dataState: DataState<BaseResponse<List<Person>>>) {
+    override fun onPersonListReceiver(dataState: DataState<BaseResponse<List<PersonLocal>>>) {
 
         when (dataState) {
             is DataState.NetworkError -> {
@@ -91,20 +91,17 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun acceptRequest(person: Person) {
-        personListAdapter.items.remove(person)
+    override fun acceptRequest(person: PersonLocal) {
         personListAdapter.items.add(person.apply {
             requestTittle = getString(R.string.accept_text)
-            colorId = R.color.green
         })
         personListAdapter.notifyDataSetChanged()
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun declineRequest(person: Person) {
+    override fun declineRequest(person: PersonLocal) {
         personListAdapter.items.add(person.apply {
             requestTittle = getString(R.string.decline_text)
-            colorId = R.color.red
         })
         personListAdapter.notifyDataSetChanged()
     }

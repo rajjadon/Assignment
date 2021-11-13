@@ -9,7 +9,7 @@
 
         <variable
             name="person"
-            type="com.example.assignment.data.model.Person" />
+            type="com.example.assignment.data.model.PersonLocal" />
 
         <variable
             name="matchOperation"
@@ -45,7 +45,7 @@
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:text="@{ person.personName.nameTitle+` `+ person.gender}"
+                android:text="@{ person.nameWithGender}"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/personAge" />
@@ -55,7 +55,7 @@
                 style="@style/textStyleNormal"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:text="@{ person.birthdayInfo.age+` yrs` }"
+                android:text="@{ person.age }"
                 android:textSize="@dimen/_12sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/personCity" />
@@ -65,7 +65,7 @@
                 style="@style/textStyleNormal"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
-                android:text="@{ person.personLocation.city}"
+                android:text="@{ person.location}"
                 android:textSize="@dimen/_10sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/tvMessage" />

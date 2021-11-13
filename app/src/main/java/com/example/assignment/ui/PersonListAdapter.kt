@@ -4,11 +4,11 @@ import androidx.core.content.ContextCompat
 import com.example.assignment.R
 import com.example.assignment.common.baseClasses.BaseRecyclerViewAdapter
 import com.example.assignment.common.utills.showImageInImageView
-import com.example.assignment.data.model.Person
+import com.example.assignment.data.model.PersonLocal
 import com.example.assignment.databinding.PersonListItemBinding
 
 class PersonListAdapter(private val matchOperation: MatchOperation) :
-    BaseRecyclerViewAdapter<Person, PersonListItemBinding>() {
+    BaseRecyclerViewAdapter<PersonLocal, PersonListItemBinding>() {
 
     override fun getLayout() = R.layout.person_list_item
 
@@ -17,9 +17,7 @@ class PersonListAdapter(private val matchOperation: MatchOperation) :
         position: Int
     ) {
         holder.binding.person = items[position]
-        showImageInImageView(holder.binding.userImage, items[position].userPicture.large)
-
-
+        showImageInImageView(holder.binding.userImage, items[position].userPicture)
 
         holder.binding.matchOperation = matchOperation
 

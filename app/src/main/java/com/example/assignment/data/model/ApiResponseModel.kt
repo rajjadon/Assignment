@@ -1,5 +1,8 @@
 package com.example.assignment.data.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.example.assignment.data.remote.NetworkingConstant.AGE
 import com.example.assignment.data.remote.NetworkingConstant.CITY
 import com.example.assignment.data.remote.NetworkingConstant.CONTACT_NAME
@@ -44,6 +47,7 @@ import com.example.assignment.data.remote.NetworkingConstant.USER_REGISTERED
 import com.example.assignment.data.remote.NetworkingConstant.UUID
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
+import java.io.Serializable
 
 
 @JsonClass(generateAdapter = true)
@@ -51,7 +55,6 @@ data class Person(
     @Json(name = GENDER)
     var gender: String = "",
     var requestTittle: String = "",
-    var colorId: Int = 0,
     @Json(name = MOBILE)
     var mobile: String = "",
     @Json(name = DOB)
@@ -169,3 +172,13 @@ data class Timezone(
     @Json(name = OFF_SET)
     var offset: String = ""
 )
+
+@Entity(tableName = "PERSON_LOCAL_TABLE")
+data class PersonLocal(
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = USER_ID) var id: Int = 0,
+    @ColumnInfo(name = USER_PICTURE) var userPicture: String = "",
+    @ColumnInfo(name = NAME_TITTLE) var nameWithGender: String = "",
+    @ColumnInfo(name = AGE) var age: String = "",
+    @ColumnInfo(name = LOCATION) var location: String = "",
+    @ColumnInfo(name = "requestTittle") var requestTittle: String = "",
+) : Serializable
