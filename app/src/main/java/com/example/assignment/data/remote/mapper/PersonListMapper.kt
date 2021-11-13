@@ -26,7 +26,7 @@ class PersonListMapper @Inject constructor(
 
         val personLocalList: MutableList<PersonLocal> = emptyList<PersonLocal>().toMutableList()
 
-
+        localDao.deleteAll()
         entity.data?.let {
 
             it.map { person ->

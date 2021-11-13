@@ -16,7 +16,6 @@ class ApiCallsImplementer(private val isLoadingEvent: IsLoadingEvent) : ApiCallA
         matchFragmentViewModelEvent: MatchFragmentViewModel,
         resultParams: ResultParams
     ) {
-        isLoading(true)
         matchFragmentViewModelEvent.setStateEvent(
             MatchFragmentViewModel.MatchFragmentViewModelEvent.GetPersonDetails(
                 resultParams
@@ -25,7 +24,6 @@ class ApiCallsImplementer(private val isLoadingEvent: IsLoadingEvent) : ApiCallA
     }
 
     override fun personListResponse(person: DataState<BaseResponse<List<PersonLocal>>>) {
-        isLoading(false)
         if (this::personListReceiver.isInitialized)
             personListReceiver.onPersonListReceiver(person)
     }

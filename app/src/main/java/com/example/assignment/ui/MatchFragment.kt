@@ -95,6 +95,8 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
         personListAdapter.items.add(person.apply {
             requestTittle = getString(R.string.accept_text)
         })
+
+        lifecycleScope.launchWhenResumed { localDao.update(person) }
         personListAdapter.notifyDataSetChanged()
     }
 
@@ -103,6 +105,9 @@ class MatchFragment : BaseFragment<FragmentMatchBinding>(), PersonListReceiver, 
         personListAdapter.items.add(person.apply {
             requestTittle = getString(R.string.decline_text)
         })
+
+        lifecycleScope.launchWhenResumed { localDao.update(person) }
+
         personListAdapter.notifyDataSetChanged()
     }
 }

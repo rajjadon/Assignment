@@ -22,7 +22,7 @@ class MatchFragmentRepo @Inject constructor(
 
         emit(DataState.Loading)
         emit(
-            if (networkHelper.isNetworkConnected())
+            if (networkHelper.isNetworkConnected()) {
                 safeApiRequest.apiRequest {
                     personListMapper.mapFromEntity(
                         apiService.getPersonList(
@@ -30,7 +30,7 @@ class MatchFragmentRepo @Inject constructor(
                         )
                     )
                 }
-            else
+            } else
                 DataState.Success(BaseResponse(data = localDao.getAllDataFromLocal()))
         )
     }

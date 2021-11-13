@@ -1,8 +1,6 @@
 
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 o
 ?app/src/main/java/com/example/assignment/common/Utills/Event.kt,3\8\387f110fd759c6652824ea3c3795b135ca596be9
 x
@@ -15,8 +13,6 @@ l
 <app/src/main/java/com/example/assignment/di/NetworkModule.kt,2\a\2af51a4cd0785f7cfc5e84448b964be31ac4a8d1
 t
 Dapp/src/main/java/com/example/assignment/data/model/ErrorResponse.kt,d\7\d7c6a3e486032ade7b16779bac7b3b8351ff86b1
-F
-app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 
 Oapp/src/main/java/com/example/assignment/data/remote/apiHelper/NetworkHelper.kt,4\7\4733ec5e8292e417f7ec978af0393fc0a07dd167
 |
@@ -31,14 +27,10 @@ s
 Capp/src/main/java/com/example/assignment/di/IsLoadingEventModule.kt,a\e\ae817e8f7d96209312469f2c9e538d54d07ffb54
 x
 Happ/src/main/java/com/example/assignment/common/utills/IsLoadingEvent.kt,a\4\a471c42d7e526f19422636dcb8f1fcf9260c8495
-{
-Kapp/src/main/java/com/example/assignment/common/baseClasses/MainActivity.kt,7\a\7aafac564956deccbef78da5341bfab7335bee45
 s
 Capp/src/main/java/com/example/assignment/di/CommonObjectProvider.kt,1\c\1c5dd56b1d51aad751b3038707b980ad9ea81651
 n
 >app/src/main/java/com/example/assignment/common/AppConstant.kt,3\8\388adc06727b2a9cf87a2f2ea468045a3c2514c7
-{
-Kapp/src/main/java/com/example/assignment/common/baseClasses/BaseFragment.kt,8\2\8245c3c556b372c49b37a584efacd5591288005b
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 r
@@ -53,10 +45,6 @@ E
 Kapp/src/main/java/com/example/assignment/di/ApiResponseImplementerObject.kt,6\6\66c34377c0dc6dbe5e87b6220c1a63c5809b699c
 z
 Japp/src/main/java/com/example/assignment/data/remote/NetworkingConstant.kt,8\0\80fdd55e8b74725415c5bd61bcf4b2c3e0346a43
-{
-Kapp/src/main/java/com/example/assignment/common/baseClasses/BaseActivity.kt,7\b\7b430e53189ec899b40ec447b57a332737b36de6
-ç
-]app/src/main/java/com/example/assignment/data/remote/apiCallAndReciver/ApiCallsImplementer.kt,8\e\8ec456c65043b6a205e2770c7571891abc47752a
 ì
 capp/src/main/java/com/example/assignment/data/remote/apiCallAndReciver/ApiCallAndReceiverHandler.kt,1\7\1777ef9a66e71b52afe84b9d714a4b135e220203
 ç

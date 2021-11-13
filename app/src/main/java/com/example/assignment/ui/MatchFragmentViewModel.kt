@@ -31,7 +31,6 @@ class MatchFragmentViewModel @Inject constructor
 
     fun setStateEvent(matchFragmentViewModelEvent: MatchFragmentViewModelEvent) {
         viewModelScope.launch {
-
             when (matchFragmentViewModelEvent) {
                 is MatchFragmentViewModelEvent.GetPersonDetails -> {
 

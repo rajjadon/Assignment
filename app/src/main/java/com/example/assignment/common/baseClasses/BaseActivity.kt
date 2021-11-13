@@ -17,7 +17,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 abstract class BaseActivity : AppCompatActivity() {
 
-    val matchFragmentViewModelEvent: MatchFragmentViewModel by viewModels()
+    private val matchFragmentViewModelEvent: MatchFragmentViewModel by viewModels()
 
     @Inject
     lateinit var apiCallsImplementer: ApiCallsImplementer

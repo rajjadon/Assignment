@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import com.example.assignment.R
 import com.example.assignment.common.appCommonMessage.SnackBarMessageRules
 import com.example.assignment.common.utills.setDrawableIconOnLeft
+import com.example.assignment.data.local.LocalDao
 import com.example.assignment.data.model.ResultParams
 import com.example.assignment.data.remote.apiCallAndReciver.ApiCallsImplementer
 import com.example.assignment.databinding.CustomSnackbarLayoutBinding
@@ -42,6 +43,9 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment(), SnackBarMessageRu
 
     @Inject
     lateinit var resultParams: ResultParams
+
+    @Inject
+    lateinit var localDao: LocalDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
