@@ -15,10 +15,10 @@ interface LocalDao {
     suspend fun deleteAll()
 
     @Delete
-    fun delete(personLocal: PersonLocal)
+    suspend fun delete(personLocal: PersonLocal)
 
     @Query("SELECT * FROM PERSON_LOCAL_TABLE")
-    fun getAllDataFromLocal(): List<PersonLocal>
+    suspend fun getAllDataFromLocal(): List<PersonLocal>
 
     @Update(onConflict = REPLACE)
     suspend fun update(personLocal: PersonLocal)
